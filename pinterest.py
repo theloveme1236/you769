@@ -963,12 +963,14 @@ def instagram_follow():
                         page_height = driver.execute_script("return document.body.scrollHeight;")
                         driver.set_window_size(1920, page_height)
                     except:
-                        text_instgeram = driver.find_element(By.XPATH, "/html/body/div[2]/div/div/div[2]/div/div/div/div[1]/div[1]/div[2]/section/main/div/div/div/span").text
-                        print(text_instgeram)
                         my_list_like.append(onclick_value)
                         with open('unfollowing.txt', 'a', encoding='utf-8') as result:
                             result.write("\n")
                             result.write(onclick_value)
+                        driver.save_screenshot('un_{}.png'.format(int(s)))
+                        text_instgeram = driver.find_element(By.XPATH, "/html/body/div[2]/div/div/div[2]/div/div/div/div[1]/div[1]/div[2]/section/main/div/div/div/span").text
+                        print(text_instgeram)
+
                         time.sleep(5)
                         driver.close()
                         driver.switch_to.window(driver.window_handles[0])
