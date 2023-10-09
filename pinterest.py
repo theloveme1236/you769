@@ -473,9 +473,8 @@ def failed_success_minutes():
             print('You have failed our')
             print('You have failed our')
             print('You have failed our')
-                        
+            driver.close()
             time.sleep(int(minutes_to_add) * 60)
-            input('finsh You have failed our')
             '''
             email_to_find = email
             user_data = collection.find_one({"email": email_to_find})
